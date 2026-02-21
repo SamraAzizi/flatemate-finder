@@ -95,3 +95,163 @@ export default function FilterModal({ isOpen, onClose, filters, onFilterChange, 
             </div>
 
             {/* Looking For */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Looking For</Label>
+              <Select value={filters.looking_for || ""} onValueChange={v => onFilterChange("looking_for", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  {FILTER_OPTIONS.looking_for.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Cleanliness */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Cleanliness</Label>
+              <Select value={filters.cleanliness || ""} onValueChange={v => onFilterChange("cleanliness", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  {FILTER_OPTIONS.cleanliness.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Smoking */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Smoking</Label>
+              <Select value={filters.smoking || ""} onValueChange={v => onFilterChange("smoking", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  {FILTER_OPTIONS.smoking.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Pets */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Pets</Label>
+              <Select value={filters.pets || ""} onValueChange={v => onFilterChange("pets", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  {FILTER_OPTIONS.pets.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Sleep Schedule */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Sleep Schedule</Label>
+              <Select value={filters.sleep_schedule || ""} onValueChange={v => onFilterChange("sleep_schedule", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  {FILTER_OPTIONS.sleep_schedule.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Communication Style */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Communication Style</Label>
+              <Select value={filters.communication_style || ""} onValueChange={v => onFilterChange("communication_style", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  {FILTER_OPTIONS.communication_style.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Shared Interests */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Shared Interests</Label>
+              <Input
+                value={filters.shared_interests || ""}
+                onChange={e => onFilterChange("shared_interests", e.target.value)}
+                placeholder="e.g., hiking, cooking, gaming"
+                className="rounded-xl border-gray-200 h-11"
+              />
+              <p className="text-[10px] text-gray-400 mt-1 ml-1">Enter interests separated by commas</p>
+            </div>
+
+            {/* Minimum Compatibility */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Minimum Compatibility Score</Label>
+              <Select value={filters.min_compatibility || ""} onValueChange={v => onFilterChange("min_compatibility", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any</SelectItem>
+                  <SelectItem value="80">80% or higher (Excellent)</SelectItem>
+                  <SelectItem value="60">60% or higher (Great+)</SelectItem>
+                  <SelectItem value="40">40% or higher (Good+)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Recently Active */}
+            <div>
+              <Label className="text-xs text-gray-500 uppercase tracking-wide mb-2 block">Recently Active</Label>
+              <Select value={filters.recently_active || ""} onValueChange={v => onFilterChange("recently_active", v)}>
+                <SelectTrigger className="rounded-xl border-gray-200 h-11">
+                  <SelectValue placeholder="Any time" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={null}>Any time</SelectItem>
+                  {FILTER_OPTIONS.recently_active.map(opt => (
+                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4 flex gap-3">
+            <button
+              onClick={onClear}
+              className="flex-1 py-3 rounded-2xl border border-gray-200 text-gray-600 font-medium hover:bg-gray-50 transition-colors"
+            >
+              Clear All
+            </button>
+            <button
+              onClick={onApply}
+              className="flex-1 py-3 rounded-2xl accent-gradient text-white font-semibold"
+            >
+              Apply Filters
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
